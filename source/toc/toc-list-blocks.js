@@ -6,17 +6,17 @@ import { withSelect } from '@wordpress/data';
 /**
  * Internal dependencies.
  */
-import TOCBlockItem from './TOCBlockItem.js';
+import TOCItem from './toc-item';
 
 /**
  * Main.
  */
-const TOCBlocksList = ( { blocks } ) => {
+const TOCList = ( { blocks } ) => {
 	return (
 		<ul className="guten-toc-toc">
 			{ blocks.map(
 				( block ) => (
-					<TOCBlockItem key={ block.clientId } block={ block } />
+					<TOCItem key={ block.clientId } block={ block } />
 				)
 			) }
 		</ul>
@@ -27,4 +27,4 @@ export default withSelect( ( select ) => {
 	return {
 		blocks: select( 'core/block-editor' ).getBlocks(),
 	};
-} )( TOCBlocksList );
+} )( TOCList );
