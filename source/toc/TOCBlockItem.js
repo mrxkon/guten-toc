@@ -20,7 +20,7 @@ const TOCBlockItem = ( { block } ) => {
 	return (
 		<li key={ block.clientId }>
 			<TOCBlockButton block={ block } />
-			{ childBlocks && <ul><li>{ childBlocks }</li></ul> }
+			{ childBlocks.length > 0 ? <ul><li>{ childBlocks }</li></ul> : null }
 		</li>
 	);
 };
