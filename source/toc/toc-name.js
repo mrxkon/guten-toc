@@ -14,21 +14,20 @@ const TOCName = ( { block } ) => {
 		case 'core/heading':
 			name = block.attributes.content;
 			name = name.replace( /(<([^>]+)>)/ig, '' );
-			name = name.substring( 0, 20 );
-			name = name + '...';
 			break;
 		case 'core/pullquote':
 		case 'core/quote':
 			name = block.attributes.value;
 			name = name.replace( /(<([^>]+)>)/ig, '' );
-			name = name.substring( 0, 20 );
-			name = name + '...';
 			break;
 		case 'core/button':
 			name = block.attributes.text;
-			name = name.substring( 0, 20 );
-			name = name + '...';
 			break;
+	}
+
+	if ( name.length > 15 ) {
+		name = name.substring( 0, 15 );
+		name = name + '...';
 	}
 
 	return (
